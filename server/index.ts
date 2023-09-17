@@ -97,13 +97,13 @@ apiRouter.get("/redirect", async (req, res): Promise<void> => {
   const session = { ...sessionData[sessionId] };
   // Validate that the state matches what we passed to sgID for this session
   if (session?.state?.toString() !== state) {
-    res.redirect(`${frontendHost}/error`);
+    res.redirect(`${frontendHost}/IdeateCOMM2023/error.html`);
     return;
   }
 
   // Validate that the code verifier exists for this session
   if (session?.codeVerifier === undefined) {
-    res.redirect(`${frontendHost}/error`);
+    res.redirect(`${frontendHost}/IdeateCOMM2023/error.html`);
     return;
   }
 
@@ -120,7 +120,7 @@ apiRouter.get("/redirect", async (req, res): Promise<void> => {
   sessionData[sessionId] = session;
 
   // Successful login, redirect to logged in state
-  res.redirect(`${frontendHost}/logged-in`);
+  res.redirect(`${frontendHost}/IdeateCOMM2023`);
 });
 
 apiRouter.get("/userinfo", async (req, res) => {
@@ -166,7 +166,7 @@ const initServer = async (): Promise<void> => {
 
     app.listen(PORT, () => {
       console.log(`Server listening on port http://localhost:${PORT}`);
-      void open(`http://localhost:${PORT}`);
+      // void open(`http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error(
