@@ -4,6 +4,7 @@ document.getElementById("IDK").addEventListener("click", () => {
     .get(`${BACKEND_URL}/api/auth-url`)
     .then((response) => {
       console.log(response.data);
+      window.location.href = response.data["url"];
     })
     .catch((err) => {
       if (err) {
