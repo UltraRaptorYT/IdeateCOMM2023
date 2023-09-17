@@ -16,8 +16,6 @@ const frontendHost = String(
   process.env.SGID_FRONTEND_HOST ?? "http://localhost:5173"
 );
 
-console.log(frontendHost);
-
 const sgid = new SgidClient({
   clientId: String(process.env.SGID_CLIENT_ID),
   clientSecret: String(process.env.SGID_CLIENT_SECRET),
