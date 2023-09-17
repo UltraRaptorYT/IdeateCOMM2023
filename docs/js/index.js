@@ -1,5 +1,5 @@
 document.getElementById("IDK").addEventListener("click", () => {
-  console.log("hi");
+  console.log(`${BACKEND_URL} connecting!`);
   axios
     .get(`${BACKEND_URL}/api/auth-url`)
     .then((response) => {
