@@ -1,10 +1,9 @@
 document.getElementById("IDK").addEventListener("click", () => {
   console.log(`${BACKEND_URL} connecting!`);
   axios
-    .get(`${BACKEND_URL}/api/auth-url`)
+    .get(`${BACKEND_URL}/api/auth-url`, { withCredentials: true })
     .then((response) => {
-      console.log(response.data);
-      window.location.href = response.data["url"];
+      window.location.href = response.data.url;
     })
     .catch((err) => {
       if (err) {

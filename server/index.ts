@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5001;
 const redirectUri = String(
   process.env.SGID_REDIRECT_URI ?? `http://localhost:${PORT}/api/redirect`
 );
-const frontendHost = String(
+var frontendHost = String(
   process.env.SGID_FRONTEND_HOST ?? "http://localhost:5173"
 );
 
@@ -27,10 +27,10 @@ const app = express();
 
 const apiRouter = Router();
 
-const SESSION_COOKIE_NAME = "exampleAppSession";
-const SESSION_COOKIE_OPTIONS = {
-  httpOnly: true,
-};
+const SESSION_COOKIE_NAME = "loginSession";
+// const SESSION_COOKIE_OPTIONS = {
+//   sameSite: none",
+// };
 
 type SessionData = Record<
   string,
@@ -58,13 +58,32 @@ app.use(
   })
 );
 
+// app.use((req, res, next) => {
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Authorization,  X-PINGOTHER"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS"
+//   );
+//   res.header("Access-Control-Allow-Credentials", true);
+//   next();
+// });
+
+frontendHost =
+  frontendHost.indexOf("https://ultraraptoryt.github.io") == -1
+    ? frontendHost
+    : `${frontendHost}/IdeateCOMM2023`;
+console.log(frontendHost);
+
 apiRouter.get("/auth-url", (req, res) => {
-  const iceCreamSelection = String(req.query.icecream);
+  // const iceCreamSelection = String(req.query.icecream);
   const sessionId = crypto.randomUUID();
   // Use search params to store state so other key-value pairs
   // can be added easily
   const state = new URLSearchParams({
-    icecream: iceCreamSelection,
+    icecream: "iceCreamSelection",
   });
 
   // Generate a PKCE pair
@@ -85,7 +104,7 @@ apiRouter.get("/auth-url", (req, res) => {
     codeVerifier,
   };
   return res
-    .cookie(SESSION_COOKIE_NAME, sessionId, SESSION_COOKIE_OPTIONS)
+    .cookie(SESSION_COOKIE_NAME, sessionId, { sameSite: "none", secure: true })
     .json({ url });
 });
 
@@ -95,15 +114,16 @@ apiRouter.get("/redirect", async (req, res): Promise<void> => {
   const sessionId = String(req.cookies[SESSION_COOKIE_NAME]);
 
   const session = { ...sessionData[sessionId] };
+
   // Validate that the state matches what we passed to sgID for this session
   if (session?.state?.toString() !== state) {
-    res.redirect(`${frontendHost}/IdeateCOMM2023/error.html`);
+    res.redirect(`${frontendHost}/error.html`);
     return;
   }
 
   // Validate that the code verifier exists for this session
   if (session?.codeVerifier === undefined) {
-    res.redirect(`${frontendHost}/IdeateCOMM2023/error.html`);
+    res.redirect(`${frontendHost}/error.html`);
     return;
   }
 
@@ -120,7 +140,7 @@ apiRouter.get("/redirect", async (req, res): Promise<void> => {
   sessionData[sessionId] = session;
 
   // Successful login, redirect to logged in state
-  res.redirect(`${frontendHost}/IdeateCOMM2023`);
+  res.redirect(`${frontendHost}/`);
 });
 
 apiRouter.get("/userinfo", async (req, res) => {
@@ -149,7 +169,7 @@ apiRouter.get("/logout", async (req, res) => {
   const sessionId = String(req.cookies[SESSION_COOKIE_NAME]);
   delete sessionData[sessionId];
   return res
-    .clearCookie(SESSION_COOKIE_NAME, SESSION_COOKIE_OPTIONS)
+    .clearCookie(SESSION_COOKIE_NAME, { sameSite: "none", secure: true })
     .sendStatus(200);
 });
 

@@ -1,0 +1,11 @@
+#main {
+  margin: 0 auto;
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  min-height: 100svh;
+  max-height: 100svh;
+}
