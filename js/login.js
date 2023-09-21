@@ -1,5 +1,6 @@
-document.getElementById("IDK").addEventListener("click", () => {
-  console.log(`${BACKEND_URL} connecting!`);
+document.getElementById("loginBtn").addEventListener("click", () => {
+  console.log(`${ BACKEND_URL } connecting!`);
+  document.getElementById("loginBtn").innerHTML = `<span>Loading...</span>`
   axios
     .get(`${BACKEND_URL}/api/auth-url`, { withCredentials: true })
     .then((response) => {

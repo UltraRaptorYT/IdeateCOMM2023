@@ -3,9 +3,45 @@
   max-width: 28rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100svh;
   min-height: 100svh;
   max-height: 100svh;
+  gap: 20px;
+}
+
+#main > nav {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  border-radius: 20px 20px 0 0;
+}
+
+#main > header {
+  height: 60px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.bg-blue-color {
+  background: #38b6ff;
+}
+
+.logo {
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+#logoWrapper {
+  gap: 10px;
+}
+
+#profile {
+  font-size: x-large;
+  color: black;
 }
