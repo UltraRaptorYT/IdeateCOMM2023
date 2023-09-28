@@ -6,7 +6,7 @@ jQuery(document).ready(function() {
 				prog = yourPoints * 100 / reward,
 				con = prog.toString().indexOf('.'),
 				cont = '',
-				cont1 = '<div class="progressTracker">Remain points to claim ' + (reward - yourPoints) + '</div>';
+				cont1 = '<div class="progressTracker">Remaining points to claim ' + (reward - yourPoints) + '</div>';
 		if(con > 0) {
 			cont = prog.toFixed(2) + '%';
 		} else if(prog >= 100) {
