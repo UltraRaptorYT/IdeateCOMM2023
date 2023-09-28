@@ -1,23 +1,48 @@
+@font-face {
+  font-family: Lexend;
+  src: url(Lexend-VariableFont_wght.ttf);
+}
+
+*,
+*::before,
+*::after {
+  font-family: Lexend;
+}
+
 #main {
   margin: 0 auto;
   max-width: 28rem;
   display: flex;
   flex-direction: column;
-  height: 100svh;
   min-height: 100svh;
-  max-height: 100svh;
-  gap: 20px;
+  padding-bottom: 60px;
+  background: #f5f4f0;
 }
 
 #main > nav {
   max-width: 28rem;
-  margin: 0 auto;
   padding: 0 15px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   height: 60px;
-  border-radius: 20px 20px 0 0;
+  background: white;
+}
+
+#main > nav > a {
+  color: black;
+  text-decoration: none;
+}
+
+#main > nav > a.active {
+  font-weight: 900;
+}
+
+#main > nav i {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+#main > nav span {
+  font-size: 0.5rem;
+  line-height: 0.75rem;
 }
 
 #main > header {
@@ -26,10 +51,7 @@
   display: flex;
   justify-content: center;
   padding: 0 15px;
-}
-
-.bg-blue-color {
-  background: #38b6ff;
+  background: #f5f4f0;
 }
 
 .logo {
@@ -39,9 +61,4 @@
 
 #logoWrapper {
   gap: 10px;
-}
-
-#profile {
-  font-size: x-large;
-  color: black;
 }
