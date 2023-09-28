@@ -20,7 +20,6 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/profile.css" />
   </head>
   <body>
     <div class="mx-auto" id="main">
@@ -33,14 +32,9 @@
           <h5 class="fw-bold m-0">SilverLink</h5>
         </div>
       </header>
-      <div class="flex-grow-1 d-flex flex-column" id="body">
-        <div class="d-flex flex-column w-100 align-items-center justify-content-center py-3" id="profile">
-          <span class="font-weight-bold text-primary">Hello,</span>
-          <span id="name">Hong Yu</span>
-        </div>
-      </div>
+      <div class="flex-grow-1 d-flex flex-column px-3" id="body"></div>
       <nav
-        class="position-fixed fixed-bottom d-flex justify-content-around align-items-center mx-auto"
+        class="position-fixed fixed-bottom d-flex align-items-center mx-auto"
       >
         <a
           href="./"
@@ -50,24 +44,33 @@
           <span class="">Home</span>
         </a>
         <a
-          href="./explore.html"
+          href="./health.html"
           class="d-flex flex-column justify-content-center align-items-center"
-          ><i class="bi bi-compass"></i>
-          <span class="">Explore</span>
+        >
+          <i class="bi bi-heart-pulse"></i>
+          <span class="">Health</span>
         </a>
         <a
           href="./rewards.html"
-          class="d-flex flex-column justify-content-center align-items-center"
+          class="d-flex flex-column justify-content-center align-items-center active"
         >
           <i class="bi bi-gift"></i>
           <span class="">Rewards</span>
         </a>
         <a
-          href="./profile.html"
-          class="d-flex flex-column justify-content-center align-items-center active"
+          href="./translate.html"
+          class="d-flex flex-column justify-content-center align-items-center"
         >
-          <i class="bi bi-person-circle"></i>
-          <span class="">Profile</span>
+          <i class="bi bi-translate"></i>
+          <span class="">Translate</span>
+        </a>
+
+        <a
+          href="./game.html"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <i class="bi bi-controller"></i>
+          <span class="">Game</span>
         </a>
       </nav>
     </div>

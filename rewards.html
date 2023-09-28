@@ -19,88 +19,95 @@
       src="https://kit.fontawesome.com/825a35d965.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./css/rewards.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <div class="mx-auto" id="main">
-        <header>
+      <header class="sticky-top">
         <div
-            class="d-flex align-items-center justify-content-center"
-            id="logoWrapper"
+          class="d-flex align-items-center justify-content-center"
+          id="logoWrapper"
         >
-            <img src="./img/SilverLink.png" class="logo" />
-            <h5 class="fw-bold m-0">SilverLink</h5>
+          <img src="./img/SilverLink.png" class="logo" />
+          <h5 class="fw-bold m-0">SilverLink</h5>
         </div>
-        </header>
-
-        <div class="container" id="pageHight">
-            <div class="yourPoints" data-yourpoints="100">
-                <a class="button" href=""><i class="fa-solid fa-trophy"></i></a>
-                <h3>300 points to your next reward!</h3>
-                <h5 style="color:grey; padding-bottom: 50px;">1 Mr Bean Pancake Voucher</h2>
-
-                <h2>You have</h2>
-                <h1>100 <small>points</small></h1>
+      </header>
+      <div class="flex-grow-1 d-flex flex-column px-3" id="body">
+        <div class="d-flex flex-column gap-3">
+          <button
+            onclick="alert('simplygo')"
+            class="text-black bg-white d-flex align-items-center gap-5 py-2 px-3 border-0 text-left"
+          >
+            <img
+              src="https://www.simplygo.com.sg/media/q3gdigv3/simplygo.png"
+              class="brandImage"
+            />
+            <div class="d-flex flex-column justify-content-start">
+              <span class="font-weight-bold">SimplyGo</span>
+              <div class="d-flex align-items-center gap-1">
+                <span class="text-sm">150</span>
+                <i class="fa-solid fa-heart text-danger"></i>
+              </div>
             </div>
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 style="text-align: center;">Complete 5000 steps today</h4>
-                    <div class="donut_singleContainer" data-reward="50" data-link="#">
-                        <h5 style="text-align: center;">50 Points</h5>
-                        <div class="donut_singleWrapper">
-                            <div class="donut_single"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h4 style="text-align: center;">Attended Senior Bonding Workshop</h4>
-                    <div class="donut_singleContainer" data-reward="100" data-link="#">
-                        <h5 style="text-align: center;">100 Points</h5>
-                        <div class="donut_singleWrapper">
-                            <div class="donut_single"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h4>Completed Lorem Lorem Lorem</h4>
-                    <div class="donut_singleContainer" data-reward="150" data-link="#">
-                        <h5 style="text-align: center;">150 Points</h5>
-                        <div class="donut_singleWrapper">
-                            <div class="donut_single"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h4>Completed Lorem Lorem Lorem</h4>
-                    <div class="donut_singleContainer" data-reward="200" data-link="#">
-                        <h5 style="text-align: center;">200 Points</h5>
-                        <div class="donut_singleWrapper">
-                            <div class="donut_single"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h4>Completed Lorem Lorem Lorem</h4>
-                    <div class="donut_singleContainer" data-reward="250" data-link="#">
-                        <h5 style="text-align: center;">250 Points</h5>
-                        <div class="donut_singleWrapper">
-                            <div class="donut_single"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h4>Completed Lorem Lorem Lorem</h4>
-                    <div class="donut_singleContainer" data-reward="300" data-link="#">
-                        <h5 style="text-align: center;">300 Points</h5>
-                        <div class="donut_singleWrapper">
-                            <div class="donut_single"></div>
-                        </div>
-                    </div>
-                </div>
+          </button>
+          <button
+            onclick="alert('hi')"
+            class="text-black bg-white d-flex align-items-center gap-5 py-2 px-3 border-0 text-left"
+          >
+            <img
+              src="https://theme.zdassets.com/theme_assets/2115944/95fc6603504ec0ada9cbcefae9c21cf3cd512eab.png"
+              class="brandImage"
+            />
+            <div class="d-flex flex-column justify-content-start">
+              <span class="font-weight-bold">$5 FairPrice eVoucher</span>
+              <div class="d-flex align-items-center gap-1">
+                <span class="text-sm">750</span>
+                <i class="fa-solid fa-heart text-danger"></i>
+              </div>
             </div>
+          </button>
         </div>
+      </div>
+      <nav
+        class="position-fixed fixed-bottom d-flex align-items-center mx-auto"
+      >
+        <a
+          href="./"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <i class="bi bi-house"></i>
+          <span class="">Home</span>
+        </a>
+        <a
+          href="./health.html"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <i class="bi bi-heart-pulse"></i>
+          <span class="">Health</span>
+        </a>
+        <a
+          href="./rewards.html"
+          class="d-flex flex-column justify-content-center align-items-center active"
+        >
+          <i class="bi bi-gift"></i>
+          <span class="">Rewards</span>
+        </a>
+        <a
+          href="./translate.html"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <i class="bi bi-translate"></i>
+          <span class="">Translate</span>
+        </a>
 
+        <a
+          href="./game.html"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <i class="bi bi-controller"></i>
+          <span class="">Game</span>
+        </a>
+      </nav>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -114,7 +121,5 @@
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
       crossorigin="anonymous"
     ></script>
-
-    <script src="./js/rewards.js"></script>
   </body>
 </html>
