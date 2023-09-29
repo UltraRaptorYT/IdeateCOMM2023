@@ -29,6 +29,11 @@ axios
       console.log("User already exists!");
     }
     sessionStorage.setItem("userId", userData[0]["id"]);
+    sessionStorage.setItem("point", userData[0]["point"]);
+
+    let userName = document.getElementById("name");
+
+    userName.innerText = response.data.data["myinfo.name"];
   })
   .catch((err) => {
     if (err) {
