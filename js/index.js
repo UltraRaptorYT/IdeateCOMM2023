@@ -38,8 +38,22 @@ axios
   .catch((err) => {
     if (err) {
       console.log(err);
-      if (err.code == "ERR_BAD_REQUEST") {
-        window.location.href = "./login.html";
-      }
+      window.location.href = "./login.html";
     }
   });
+
+async function loadEvents() {
+  const { data, error } = await SUPABASE_CLIENT.from("event").select("*");
+  if (error) {
+    console.log(error);
+    return;
+  }
+  if (data.length == 0) {
+    return;
+  }
+  for (let event of data) {
+    console.log(event);
+  }
+}
+
+loadEvents();

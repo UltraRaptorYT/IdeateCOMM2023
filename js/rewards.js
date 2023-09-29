@@ -1,9 +1,24 @@
+let userid = parseInt(sessionStorage.getItem("userId"));
 async function loadRewards() {
-  const { data, error } = await SUPABASE_CLIENT.from("reward").select();
-  console.log(data);
+  var { data, error } = await SUPABASE_CLIENT.from("user_reward")
+    .select("*")
+    .eq("userid", userid);
+  if (error) {
+    console.log(error);
+    return;
+  }
+  let existingData = [...data];
+  var { data, error } = await SUPABASE_CLIENT.from("reward").select("*");
+  if (error) {
+    console.log(error);
+    return;
+  }
+  let filterData = data.filter((e) => {
+    return !existingData.some((d) => d.rewardid == e.id);
+  });
   const rewardDiv = document.getElementById("rewards");
   rewardDiv.innerHTML = ``;
-  if (data.length == 0) {
+  if (filterData.length == 0) {
     rewardDiv.innerHTML = `
 <div
   class="py-3 d-flex flex-column justify-content-center align-items-center gap-3"
@@ -14,10 +29,10 @@ async function loadRewards() {
 `;
     rewardDiv.classList.add("justify-content-center");
   }
-  for (let reward of data) {
+  for (let reward of filterData) {
     rewardDiv.innerHTML += `
   <button
-    onclick="alert('simplygo')"
+    onclick="usePoints(${reward["id"]}, ${reward["point"]})"
     class="text-black bg-white d-flex align-items-center gap-5 py-2 px-3 border-0 text-left"
   >
     <img
@@ -38,6 +53,29 @@ async function loadRewards() {
 
 loadRewards();
 
-let pointDiv = document.getElementById("point")
+let pointDiv = document.getElementById("point");
 
-pointDiv.innerHTML = sessionStorage.getItem("point")
+let currentPoint = parseInt(sessionStorage.getItem("point"));
+
+pointDiv.innerHTML = currentPoint;
+
+async function usePoints(rewardId, point) {
+  if (currentPoint < point) {
+    alert("Insufficient amount of points");
+    return;
+  }
+  console.log(currentPoint);
+  console.log(rewardId);
+  console.log(point, userid);
+
+  var { data, error } = await SUPABASE_CLIENT.from("user_reward")
+    .insert([{ userid: userid, rewardid: rewardId }])
+    .select();
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+  sessionStorage.setItem("point", currentPoint - point);
+  window.location.reload();
+}

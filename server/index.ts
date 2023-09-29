@@ -58,19 +58,6 @@ app.use(
   })
 );
 
-// app.use((req, res, next) => {
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization,  X-PINGOTHER"
-//   );
-//   res.header(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS"
-//   );
-//   res.header("Access-Control-Allow-Credentials", true);
-//   next();
-// });
-
 frontendHost =
   frontendHost.indexOf("https://ultraraptoryt.github.io") == -1
     ? frontendHost
