@@ -20,6 +20,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/health.css" />
   </head>
   <body>
     <div class="mx-auto" id="main">
@@ -32,7 +33,26 @@
           <h5 class="fw-bold m-0">SilverLink</h5>
         </div>
       </header>
-      <div class="flex-grow-1 d-flex flex-column px-3" id="body"></div>
+      <div class="flex-grow-1 d-flex flex-column px-3 py-2" id="body">
+        <label class="sr-only" for="searchDoctor">Search for Doctor</label>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control text-sm"
+            id="searchDoctor"
+            placeholder="Search for Doctor"
+          />
+        </div>
+        <div
+          class="d-flex flex-column gap-3 flex-grow-1 pb-3 pt-2"
+          id="doctors"
+        ></div>
+      </div>
       <nav
         class="position-fixed fixed-bottom d-flex align-items-center mx-auto"
       >
@@ -87,5 +107,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/main.js"></script>
+    <script src="./js/health.js"></script>
   </body>
 </html>
