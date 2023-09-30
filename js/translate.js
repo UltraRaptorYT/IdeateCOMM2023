@@ -22,3 +22,5 @@ switchBtn.addEventListener("click", () => {
     translateDiv;
   }
 });
+
+

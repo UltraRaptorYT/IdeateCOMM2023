@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="mx-auto" id="main">
-      <header class="sticky-top">
+      <header class="sticky-top flex-column">
         <div
           class="d-flex align-items-center justify-content-center"
           id="logoWrapper"
@@ -32,17 +32,178 @@
           <img src="./img/SilverLink.png" class="logo" />
           <h5 class="fw-bold m-0">SilverLink</h5>
         </div>
-      </header>
-      <div class="flex-grow-1 d-flex flex-column px-3" id="body">
         <div id="boardWrapper">
-          <div id="board"></div>
+          <div id="board">
+            <div class="block" data-pos="18"></div>
+            <div class="block" data-pos="19"></div>
+            <div class="block" data-pos="20"></div>
+            <div class="block" data-pos="21"></div>
+            <div class="block" data-pos="22"></div>
+            <div class="block" data-pos="23"></div>
+            <div class="block" data-pos="24"></div>
+            <div class="block" data-pos="25"></div>
+            <div class="block" data-pos="26"></div>
+            <div class="block" data-pos="27"></div>
+            <div class="block" data-pos="17"></div>
+            <div
+              class="col-span-8 row-span-8 d-flex justify-content-center align-items-center"
+            >
+              <img src="./img/SilverLink.png" class="deRotate monopoly" />
+            </div>
+            <div class="block" data-pos="28"></div>
+            <div class="block" data-pos="16"></div>
+            <div class="block" data-pos="29"></div>
+            <div class="block" data-pos="15"></div>
+            <div class="block" data-pos="30"></div>
+            <div class="block" data-pos="14"></div>
+            <div class="block" data-pos="31"></div>
+            <div class="block" data-pos="13"></div>
+            <div class="block" data-pos="32"></div>
+            <div class="block" data-pos="12"></div>
+            <div class="block" data-pos="33"></div>
+            <div class="block" data-pos="11"></div>
+            <div class="block" data-pos="34"></div>
+            <div class="block" data-pos="10"></div>
+            <div class="block" data-pos="35"></div>
+            <div class="block" data-pos="9"></div>
+            <div class="block" data-pos="8"></div>
+            <div class="block" data-pos="7"></div>
+            <div class="block" data-pos="6"></div>
+            <div class="block" data-pos="5"></div>
+            <div class="block" data-pos="4"></div>
+            <div class="block" data-pos="3"></div>
+            <div class="block" data-pos="2"></div>
+            <div class="block" data-pos="1"></div>
+            <div class="block" data-pos="0"></div>
+          </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">
-          <button class="btn btn-danger" onclick="rollDice()">
+          <button
+            class="btn btn-danger"
+            onclick="roll()"
+            data-toggle="modal"
+            data-target="#diceModal"
+          >
             <span class="font-weight-bold">GO</span>
           </button>
         </div>
-        <div id="grocery"></div>
+        <h4 class="align-self-start pt-2">Grocery List</h4>
+      </header>
+      <div
+        class="flex-grow-1 d-flex flex-column px-3 justify-content-center"
+        id="body"
+      >
+        <div class="py-2">
+          <ul id="grocery">
+            <li>Pineapple</li>
+            <li>Apple</li>
+            <li>Watermelon</li>
+            <li>Eggs</li>
+            <li>Bread</li>
+            <li>Rice</li>
+            <li>Coke</li>
+            <li>Maggie</li>
+          </ul>
+        </div>
+        <div
+          class="modal fade"
+          id="diceModal"
+          tabindex="-1"
+          aria-labelledby="diceModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div
+                class="modal-body d-flex flex-column gap-3 align-items-center mt-3"
+              >
+                <div class="d-flex gap-3 justify-content-around w-100">
+                  <div id="dice1" class="dice dice-one">
+                    <div id="dice-one-side-one" class="side one">
+                      <div class="dot one-1"></div>
+                    </div>
+                    <div id="dice-one-side-two" class="side two">
+                      <div class="dot two-1"></div>
+                      <div class="dot two-2"></div>
+                    </div>
+                    <div id="dice-one-side-three" class="side three">
+                      <div class="dot three-1"></div>
+                      <div class="dot three-2"></div>
+                      <div class="dot three-3"></div>
+                    </div>
+                    <div id="dice-one-side-four" class="side four">
+                      <div class="dot four-1"></div>
+                      <div class="dot four-2"></div>
+                      <div class="dot four-3"></div>
+                      <div class="dot four-4"></div>
+                    </div>
+                    <div id="dice-one-side-five" class="side five">
+                      <div class="dot five-1"></div>
+                      <div class="dot five-2"></div>
+                      <div class="dot five-3"></div>
+                      <div class="dot five-4"></div>
+                      <div class="dot five-5"></div>
+                    </div>
+                    <div id="dice-one-side-six" class="side six">
+                      <div class="dot six-1"></div>
+                      <div class="dot six-2"></div>
+                      <div class="dot six-3"></div>
+                      <div class="dot six-4"></div>
+                      <div class="dot six-5"></div>
+                      <div class="dot six-6"></div>
+                    </div>
+                  </div>
+                  <div id="dice2" class="dice dice-one">
+                    <div id="dice-one-side-one" class="side one">
+                      <div class="dot one-1"></div>
+                    </div>
+                    <div id="dice-one-side-two" class="side two">
+                      <div class="dot two-1"></div>
+                      <div class="dot two-2"></div>
+                    </div>
+                    <div id="dice-one-side-three" class="side three">
+                      <div class="dot three-1"></div>
+                      <div class="dot three-2"></div>
+                      <div class="dot three-3"></div>
+                    </div>
+                    <div id="dice-one-side-four" class="side four">
+                      <div class="dot four-1"></div>
+                      <div class="dot four-2"></div>
+                      <div class="dot four-3"></div>
+                      <div class="dot four-4"></div>
+                    </div>
+                    <div id="dice-one-side-five" class="side five">
+                      <div class="dot five-1"></div>
+                      <div class="dot five-2"></div>
+                      <div class="dot five-3"></div>
+                      <div class="dot five-4"></div>
+                      <div class="dot five-5"></div>
+                    </div>
+                    <div id="dice-one-side-six" class="side six">
+                      <div class="dot six-1"></div>
+                      <div class="dot six-2"></div>
+                      <div class="dot six-3"></div>
+                      <div class="dot six-4"></div>
+                      <div class="dot six-5"></div>
+                      <div class="dot six-6"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5">Total: <span id="roll">0</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <nav
         class="position-fixed fixed-bottom d-flex align-items-center mx-auto"
