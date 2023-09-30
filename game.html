@@ -20,6 +20,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/game.css" />
   </head>
   <body>
     <div class="mx-auto" id="main">
@@ -32,13 +33,23 @@
           <h5 class="fw-bold m-0">SilverLink</h5>
         </div>
       </header>
-      <div class="flex-grow-1 d-flex flex-column px-3" id="body"></div>
+      <div class="flex-grow-1 d-flex flex-column px-3" id="body">
+        <div id="boardWrapper">
+          <div id="board"></div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <button class="btn btn-danger" onclick="rollDice()">
+            <span class="font-weight-bold">GO</span>
+          </button>
+        </div>
+        <div id="grocery"></div>
+      </div>
       <nav
         class="position-fixed fixed-bottom d-flex align-items-center mx-auto"
       >
         <a
           href="./"
-          class="d-flex flex-column justify-content-center align-items-center "
+          class="d-flex flex-column justify-content-center align-items-center"
         >
           <i class="bi bi-house"></i>
           <span class="">Home</span>
@@ -87,5 +98,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/main.js"></script>
+    <script src="./js/game.js"></script>
   </body>
 </html>
